@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <table id="myTable"></table>
+<script>
+  //名称	jQueryUI控制是否使用jquerui的样式（需要引入jqueryui的css）
+  //特性(Features)
+  $('#myTable').DataTable( {
+      scrollY: 300, //选项用来允许滚动
+      paging: false, //选项用来禁止分页
+      autoWidth: false, //控制dataTable是否自适应宽度
+      info: false, //控制是否显示表格左下角的信息
+      lengthChange: false, //是否允许用户改变表格每页显示的记录数
+      ordering: false, //是否允许dataTable开启排序
+      paging: false, //是否开启本地分页
+      processing: false, //是否显示处理显示状态(排序的时候，数据很多耗费时间长的话，也会显示这个)
+      scrollX: false, //设置水平滚动
+      scrollY: false, //设置垂直滚动
+      searching: false, //是否允许dataTable开启本地搜索
+      serverSide: false, //是否开启服务模式
+      stateSave: false, //保存状态 - 在页面重新加载的时候恢复状态（页码等内容）
+      deferRender: false, //控制Datatables的延迟渲染，可以提高初始化的速度
+  });
+
+  //数据(data)
+  $('#myTable').DataTable({
+    'ajax': {
+      'url': '',
+      'data': {}, //如果当做一个对象，ajax.data 选项用于扩展Datatables构造内部对象，将额外的，静态的参数传递给服务器。
+      'data':function(d){
+        //动态数据
+        //选项可以用于修改由Datatables内部构造的原始数据或者完全取代这些，然后ajax请求到服务器
+        //在每次Datatables请求服务器时都可以动态计算提交的参数，比如你可以添加一个文本框当做过滤的条件
+        
+        //Datatables构造的请求参数，如果开启了服务器模式( serverSideOption ) 这个还会包含服务器请求的一些参数
+      },
+      'dataSrc': '', //数据属性或操作表数据的方法
+    },
+    data: '', //用来显示表格的数据
+  })
+</script>
+</body>
+</html>
